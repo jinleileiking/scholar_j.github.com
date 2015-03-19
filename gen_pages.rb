@@ -5,7 +5,7 @@ def gen_page dir
 
     puts acc_items_nr
 
-    html = nil
+    html = ""
     for nr in 1..acc_items_nr 
         intro = nil
         title = nil
@@ -15,7 +15,7 @@ def gen_page dir
         File.open("images/#{dir}/#{nr}/intro","r") do |file|
              intro  = file.gets
         end
-        html = "<h2>#{title}</h2><p>#{intro}</p>"
+        html = html + "<h3>#{title}</h3><p>#{intro}</p>"
         Dir["images/#{dir}/#{nr}/*"].each do |file|
             if File.directory? file
                 next
